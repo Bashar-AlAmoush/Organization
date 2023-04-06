@@ -51,6 +51,7 @@ function displayQuestion() {
     document.getElementById("question-count").textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
 }
 displayQuestion();
+
   // Timer 
  let quizTime = 8 * 60; // 8 minutes in seconds
  let intervalId = null;
@@ -121,3 +122,7 @@ function selectAnswer() {
     }
   }
 
+  window.onload = function() {
+    startQuiz();
+  };
+  
