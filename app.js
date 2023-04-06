@@ -128,7 +128,7 @@ form.addEventListener('submit', e =>
   if (isValid) 
   {
     saveUserData(username, password, email, phone, position); 
-      window.location.href = "log-in.html";
+      window.location.href = "quiz.html";
 
   }
 });
