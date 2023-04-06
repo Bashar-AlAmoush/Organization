@@ -1,6 +1,7 @@
 import { JS } from './questions.js';
 import { HTML } from './questions.js';
 import { CSS } from './questions.js';
+
 console.log(JS);
 console.log(HTML);
 console.log(CSS);
@@ -26,103 +27,85 @@ console.log(CSS);
   
 //     return examType;
 //   }
-  const exam = JS;
-  
-let currentQuestion = 0;
-// display the qustion from the array 
 
-function displayQuestion() {
-    let question = exam[currentQuestion];
-    document.getElementById("question-text").innerHTML = question.question;
-    document.getElementById("option1").nextSibling.textContent = question.optionA;
-    document.getElementById("option2").nextSibling.textContent = question.optionB;
-    document.getElementById("option3").nextSibling.textContent = question.optionC;
-    document.getElementById("option4").nextSibling.textContent = question.optionD;
-    document.getElementById("next-button").disabled = true;
-
-    document.getElementsByName("radio").forEach(option => {
-        option.checked = false;
-
-        option.addEventListener("change", function() {
-            document.getElementById("next-button").disabled = false;
-        });
-    });
-
-    document.getElementById("question-count").textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
-}
-displayQuestion();
-
-  // Timer 
- let quizTime = 8 * 60; // 8 minutes in seconds
- let intervalId = null;
- 
- function startQuiz() {
-   displayQuestion();
-   intervalId = setInterval(decrementTime, 1000);
- }
- 
- function decrementTime() {
-   quizTime--;
-   updateTimer();
- 
-   if (quizTime <= 0) {
-     clearInterval(intervalId);
-     moveToNextQuestion();
-   }
- }
- 
- function updateTimer() {
-   const timerElement = document.getElementById("timer");
-   const minutes = Math.floor(quizTime / 60);
-   const seconds = quizTime % 60;
-   timerElement.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
- }
- 
-;
- 
-
- function endQuiz() {
-    // (Stop the timer) stops the event of the recurrin
-    clearInterval(timer);
-    
-    // Save the score in local storage
-    localStorage.setItem("quizScore", score);
-    
-    // Save the list of correct and wrong answers in local storage
-    let correctQuestions = [];
-    let incorrectQuestions = [];
-    for (let i = 0; i < exam.length; i++) {
-      let answer = localStorage.getItem(`answer${i}`);
-      if (answer === exam[i].correctOption) {
-        correctQuestions.push(exam[i]);
-      } else {
-        incorrectQuestions.push(exam[i]);
+function shuffleQuestions(array) {
+    const shuffledArray = [];
+    while (shuffledArray.length < array.length) {
+      const randomQuestion = array[Math.floor(Math.random() * array.length)];
+      if (!shuffledArray.includes(randomQuestion)) {
+        shuffledArray.push(randomQuestion);
       }
     }
-    localStorage.setItem("correctQuestions", JSON.stringify(correctQuestions));
-  localStorage.setItem("incorrectQuestions", JSON.stringify(incorrectQuestions));
+    return shuffledArray;
+  }
+  
+     
+let Shuffle = shuffleQuestions(JS)
+
+
+const exam = Shuffle;
+let currentQuestion = 0;
+
+function displayQuestion() {
+  let question = exam[currentQuestion];
+  document.getElementById("question-text").innerHTML = question.question;
+  document.getElementById("option1").nextSibling.textContent = question.optionA;
+  document.getElementById("option2").nextSibling.textContent = question.optionB;
+  document.getElementById("option3").nextSibling.textContent = question.optionC;
+  document.getElementById("option4").nextSibling.textContent = question.optionD;
+
+  document.getElementById("next-button").disabled = true;
+
+  document.getElementsByName("radio").forEach((option) => {
+    option.checked = false;
+
+    option.addEventListener("change", function () {
+      document.getElementById("next-button").disabled = false;
+    });
+  });
+
+  document.getElementById(
+    "question-count"
+  ).textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
 }
 
-function selectAnswer() {
-    let selectedOption = document.querySelector('input[name="radio"]:checked');
-    if (!selectedOption) {
-      return;
-    }
-    let answer = selectedOption.id;
-    localStorage.setItem(`answer${currentQuestion}`, answer);
-    if (answer === exam[currentQuestion].correctOption) {
-      score++;
-    }
-    selectedOption.checked = false;
+const nextButton = document.getElementById("next-button");
+nextButton.addEventListener("click", function () {
+  if (currentQuestion < exam.length - 1) {
     currentQuestion++;
-    if (currentQuestion === exam.length) {
-      endQuiz();
-    } else {
-      displayQuestion();
-    }
+    displayQuestion();
+  } else {
+    endQuiz();
   }
+});
 
-  window.onload = function() {
-    startQuiz();
-  };
-  
+// Timer
+let quizTime = 8 * 60; // 8 minutes in seconds
+let intervalId = null;
+
+function startQuiz() {
+  displayQuestion();
+  intervalId = setInterval(decrementTime, 1000);
+}
+
+function decrementTime() {
+  quizTime--;
+  updateTimer();
+
+  if (quizTime <= 0) {
+    clearInterval(intervalId);
+    endQuiz();
+  }
+}
+
+function updateTimer() {
+  const timerElement = document.getElementById("timer");
+  const minutes = Math.floor(quizTime / 60);
+  const seconds = quizTime % 60;
+  timerElement.innerHTML = `${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+window.onload = function() {
+  startQuiz();
+};
