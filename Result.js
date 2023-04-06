@@ -1,4 +1,9 @@
 let questions = JSON.parse(sessionStorage.getItem("storedAnswers"));
+
+
+// use this to render the name and the postion of the user
+const userInfo = JSON.parse(localStorage.getItem('users'));
+
 function renderAnswers() {
   let table = document.getElementById("resulttable");
   table.style = "display: inline";
@@ -34,10 +39,15 @@ function renderAnswers() {
 
 
 let button = document.getElementById("submit");
-button.addEventListener("click", (event) => {
+
+function handleButtonClick(event) {
   event.preventDefault();
   renderAnswers();
-});
+  button.removeEventListener("click", handleButtonClick);
+}
+
+button.addEventListener("click", handleButtonClick);
+
 
 let correctAnswers = 0;
 let incorrectAnswers = 0;
