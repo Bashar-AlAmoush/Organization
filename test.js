@@ -38,7 +38,7 @@ function shuffleQuestions(array) {
     }
     return shuffledArray;
   }
-  
+  let answers =[];
      
 let Shuffle = shuffleQuestions(JS)
 
@@ -58,12 +58,19 @@ function displayQuestion() {
 
   document.getElementsByName("radio").forEach((option) => {
     option.checked = false;
-
+     
     option.addEventListener("change", function () {
       document.getElementById("next-button").disabled = false;
+      let answer = {
+        question: question.question,
+        userAnswer: option.nextSibling.textContent,
+        correctAnswer: question[question.correctOption]
+      };
+      answers.push(answer);
     });
   });
-
+  
+  
   document.getElementById(
     "question-count"
   ).textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
@@ -74,6 +81,7 @@ nextButton.addEventListener("click", function () {
   if (currentQuestion < exam.length - 1) {
     currentQuestion++;
     displayQuestion();
+    // storeAnswers();
   } else {
     endQuiz();
   }
@@ -106,6 +114,28 @@ function updateTimer() {
     .toString()
     .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
+
+
+
+
+  
+  
+  function endQuiz() {
+    clearInterval(intervalId);
+    console.log(answers);
+    sessionStorage.setItem("storedAnswers", JSON.stringify(answers));
+  }
+  
+
+
+
+
+
+
+
+
+
 window.onload = function() {
-  startQuiz();
-};
+    startQuiz();
+  };
+  
