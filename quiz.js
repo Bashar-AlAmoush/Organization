@@ -83,7 +83,7 @@ nextButton.addEventListener("click", function () {
   if (currentQuestion < exam.length - 1) {
     currentQuestion++;
     displayQuestion();
-    // storeAnswers();
+
   } else {
     endQuiz();
   }

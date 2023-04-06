@@ -152,7 +152,7 @@ loginButton.addEventListener('click', () =>
   if (storedData && storedData.password === password) 
   {
     // login successful
-    window.location.href = "index.html";
+    window.location.href = "quiz.html";
   }
    else 
    {
