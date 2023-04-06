@@ -1,6 +1,6 @@
-import { JS } from './questions.js';
-import { HTML } from './questions.js';
-import { CSS } from './questions.js';
+import { JS } from "./questions.js";
+import { HTML } from "./questions.js";
+import { CSS } from "./questions.js";
 
 console.log(JS);
 console.log(HTML);
@@ -9,7 +9,7 @@ console.log(CSS);
 // function getExamTypeFromLocalStorage() {
 //     const userData = JSON.parse(localStorage.getItem("users"));
 //     const position = userData[0].position;
-  
+
 //     let examType;
 //     switch (position) {
 //       case "2":
@@ -24,25 +24,23 @@ console.log(CSS);
 //       default:
 //         console.log("Invalid position value.");
 //     }
-  
+
 //     return examType;
 //   }
 
 function shuffleQuestions(array) {
-    const shuffledArray = [];
-    while (shuffledArray.length < array.length) {
-      const randomQuestion = array[Math.floor(Math.random() * array.length)];
-      if (!shuffledArray.includes(randomQuestion)) {
-        shuffledArray.push(randomQuestion);
-      }
+  const shuffledArray = [];
+  while (shuffledArray.length < array.length) {
+    const randomQuestion = array[Math.floor(Math.random() * array.length)];
+    if (!shuffledArray.includes(randomQuestion)) {
+      shuffledArray.push(randomQuestion);
     }
-    return shuffledArray;
   }
+  return shuffledArray;
+}
+let answers = [];
 
-let answers =[];
-     
-let Shuffle = shuffleQuestions(JS)
-
+let Shuffle = shuffleQuestions(JS);
 
 const exam = Shuffle;
 let currentQuestion = 0;
@@ -59,24 +57,25 @@ function displayQuestion() {
 
   document.getElementsByName("radio").forEach((option) => {
     option.checked = false;
-     
+
     option.addEventListener("change", function () {
       document.getElementById("next-button").disabled = false;
       let answer = {
         question: question.question,
         userAnswer: option.nextSibling.textContent,
-        correctAnswer: question[question.correctOption]
+        correctAnswer: question[question.correctOption],
       };
-      if (!answers.includes(answer)) {
+
+      let isRepeated = answers.some((a) => a.question === answer.question);
+      if (!isRepeated) {
         answers.push(answer);
       }
+    });
   });
-  
-  
-  document.getElementById(
-    "question-count"
-  ).textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
-}
+
+  document.getElementById("question-count").textContent = `Question ${
+    currentQuestion + 1
+  } of ${exam.length}`;
 }
 
 const nextButton = document.getElementById("next-button");
@@ -91,7 +90,7 @@ nextButton.addEventListener("click", function () {
 });
 
 // Timer
-let quizTime = 8 * 60; // 8 minutes in seconds
+let quizTime = 1 * 60; // 8 minutes in seconds
 let intervalId = null;
 
 function startQuiz() {
@@ -113,26 +112,18 @@ function updateTimer() {
   const timerElement = document.getElementById("timer");
   const minutes = Math.floor(quizTime / 60);
   const seconds = quizTime % 60;
-  timerElement.innerHTML = `${minutes
+  timerElement.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds
     .toString()
-    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    .padStart(2, "0")}`;
 }
 
+function endQuiz() {
+  clearInterval(intervalId);
+  console.log(answers);
+  sessionStorage.setItem("storedAnswers", JSON.stringify(answers));
+  window.location.href = "result.html";
+}
 
-
-
-  
-  
-  function endQuiz() {
-    clearInterval(intervalId);
-    console.log(answers);
-    sessionStorage.setItem("storedAnswers", JSON.stringify(answers));
-    // window.location.href = "result.html";
-  }
-  
-
-
-window.onload = function() {
-    startQuiz();
-  };
-  
+window.onload = function () {
+  startQuiz();
+};
