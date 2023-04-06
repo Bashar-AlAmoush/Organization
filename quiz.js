@@ -112,9 +112,7 @@ function updateTimer() {
   const timerElement = document.getElementById("timer");
   const minutes = Math.floor(quizTime / 60);
   const seconds = quizTime % 60;
-  timerElement.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
+  timerElement.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
 function endQuiz() {
