@@ -128,7 +128,7 @@ form.addEventListener('submit', e =>
   if (isValid) 
   {
     saveUserData(username, password, email, phone, position); 
-      window.location.href = "log-in.html";
+      window.location.href = "quiz.html";
 
   }
 });
@@ -138,9 +138,13 @@ form.addEventListener('submit', e =>
 
 
 // JS for log in page
+
 const loginButton = document.getElementById('loginButton');
-loginButton.addEventListener('click', () => 
+
+
+loginButton.addEventListener('click', (event) => 
 {
+  event.preventDefault();
   const email = document.getElementById('email1').value.toLowerCase();
   const password = document.getElementById('password1').value;
   
@@ -152,7 +156,7 @@ loginButton.addEventListener('click', () =>
   if (storedData && storedData.password === password) 
   {
     // login successful
-    window.location.href = "index.html";
+    window.location.href = "quiz.html";
   }
    else 
    {
@@ -162,5 +166,6 @@ loginButton.addEventListener('click', () =>
 
 
 });
+
 
 // End JS for log in page

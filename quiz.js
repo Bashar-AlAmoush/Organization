@@ -6,27 +6,27 @@ console.log(JS);
 console.log(HTML);
 console.log(CSS);
 
-// function getExamTypeFromLocalStorage() {
-//     const userData = JSON.parse(localStorage.getItem("users"));
-//     const position = userData[0].position;
+function getExamTypeFromLocalStorage() {
+    const userData = JSON.parse(localStorage.getItem("users"));
+    const position = userData[0].position;
 
-//     let examType;
-//     switch (position) {
-//       case "2":
-//         examType = HTML;
-//         break;
-//       case "3":
-//         examType = CSS;
-//         break;
-//       case "4":
-//         examType = JS;
-//         break;
-//       default:
-//         console.log("Invalid position value.");
-//     }
+    let examType;
+    switch (position) {
+      case "2":
+        examType = HTML;
+        break;
+      case "3":
+        examType = CSS;
+        break;
+      case "4":
+        examType = JS;
+        break;
+      default:
+        console.log("Invalid position value.");
+    }
 
-//     return examType;
-//   }
+    return examType;
+  }
 
 function shuffleQuestions(array) {
   const shuffledArray = [];
@@ -39,8 +39,8 @@ function shuffleQuestions(array) {
   return shuffledArray;
 }
 let answers = [];
-
-let Shuffle = shuffleQuestions(JS);
+let quiz = getExamTypeFromLocalStorage(); 
+let Shuffle = shuffleQuestions(quiz);
 
 const exam = Shuffle;
 let currentQuestion = 0;
@@ -83,7 +83,7 @@ nextButton.addEventListener("click", function () {
   if (currentQuestion < exam.length - 1) {
     currentQuestion++;
     displayQuestion();
-    // storeAnswers();
+
   } else {
     endQuiz();
   }

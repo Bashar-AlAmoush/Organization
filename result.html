@@ -1,17 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <Style>
-        .body{
-            background-color: black;
-        }
-    </Style>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark custom-nav pe-3">
+        <a class="navbar-brand" href="#">
+          <div>
+            <img src="Images/logo.png" alt="logo" width="50" height="50" />
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link me-3" href="#Home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-3" href="#Academic">Academic</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-3" href="#About Us">About Us</a>
+            </li>
+          </ul>
+        </div>
+        <a class="nav-link me-3" href="#Register">Register</a>
+      </nav>
+    </header>
+    <main>
+      <div class="infoContainer">
+        <h4>Hamzeh Dawahreh</h4>
+        <h4>Score :(13/15)</h4>
+        <div class="passorfail">
+          <h4>Pass</h4>
+        </div>
+      </div>
+      <form action="" id="myForm">
+        <div class="button">
+          <!-- <input type="submit" name="show" id="submit" value="Show Answers" /> -->
+          <button id="submit">Show Answers</button>
+        </div>
+      </form>
+      <table id="resulttable" style="display: none;">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Question</th>
+            <th>Your Answer</th>
+            <th>Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>      
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
