@@ -1,0 +1,84 @@
+.gradient-custom
+ {
+    background: #f093fb;
+    
+    background: -webkit-linear-gradient(to bottom right, rgb(180, 112, 60), rgb(190, 115, 49));
+    
+    background: linear-gradient(to bottom right, #4e96ee, rgb(213, 129, 45))
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+
+    .form-control:hover{
+  
+    box-shadow: 0px 0px 18px 3px #4e96ee;
+    }
+
+
+
+
+
+    /* Log in page style */
+    .gradient-custom-2 {
+        /* fallback for old browsers */
+        background: #fccb90;
+        
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, #ee7724, #e1ac28, #dd3675, #b9912c);
+        
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, #ee7724, #d8a736, #c17835, #997321);
+        }
+        
+        @media (min-width: 768px)
+         {
+        .gradient-form {
+        height: 100vh !important;
+        }
+        }
+        @media (min-width: 769px)
+         {
+        .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+        }
+        }
+
+
+
+        .signUp:hover
+        {
+          font-weight: bold;
+          text-shadow:1px 1px 1px orange ;
+        }
+
+
+
+        /* Nav bar style */
+        .navbar {
+            background-color: #000000;
+          }
+          
+          .nav-link {
+            color: white;
+          }
+          .navbar .nav-link:hover
+           {
+            background-color: rgba(255, 255, 255, 0.404);
+            color: black;
+            text-decoration: none;
+          }
+
+
+
+          
+          
