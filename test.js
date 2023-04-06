@@ -38,7 +38,8 @@ function shuffleQuestions(array) {
     }
     return shuffledArray;
   }
-  let answers =[];
+
+let answers =[];
      
 let Shuffle = shuffleQuestions(JS)
 
@@ -66,14 +67,16 @@ function displayQuestion() {
         userAnswer: option.nextSibling.textContent,
         correctAnswer: question[question.correctOption]
       };
-      answers.push(answer);
-    });
+      if (!answers.includes(answer)) {
+        answers.push(answer);
+      }
   });
   
   
   document.getElementById(
     "question-count"
   ).textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
+}
 }
 
 const nextButton = document.getElementById("next-button");
@@ -124,15 +127,9 @@ function updateTimer() {
     clearInterval(intervalId);
     console.log(answers);
     sessionStorage.setItem("storedAnswers", JSON.stringify(answers));
+    // window.location.href = "result.html";
   }
   
-
-
-
-
-
-
-
 
 
 window.onload = function() {
