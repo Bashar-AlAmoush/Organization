@@ -138,7 +138,9 @@ form.addEventListener('submit', e =>
 
 
 // JS for log in page
+
 const loginButton = document.getElementById('loginButton');
+if (loginButton) {
 loginButton.addEventListener('click', () => 
 {
   const email = document.getElementById('email1').value.toLowerCase();
@@ -162,5 +164,6 @@ loginButton.addEventListener('click', () =>
 
 
 });
+}
 
 // End JS for log in page
