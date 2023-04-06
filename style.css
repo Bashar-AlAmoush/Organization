@@ -53,3 +53,32 @@
         }
         }
 
+
+
+        .signUp:hover
+        {
+          font-weight: bold;
+          text-shadow:1px 1px 1px orange ;
+        }
+
+
+
+        /* Nav bar style */
+        .navbar {
+            background-color: #000000;
+          }
+          
+          .nav-link {
+            color: white;
+          }
+          .navbar .nav-link:hover
+           {
+            background-color: rgba(255, 255, 255, 0.404);
+            color: black;
+            text-decoration: none;
+          }
+
+
+
+          
+          
