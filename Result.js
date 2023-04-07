@@ -2,6 +2,7 @@ let questions = JSON.parse(sessionStorage.getItem("storedAnswers"));
 
 
 // use this to render the name and the postion of the user
+
 const userInfo = JSON.parse(localStorage.getItem('users'));
 
 function renderAnswers() {
@@ -9,18 +10,20 @@ function renderAnswers() {
   table.style = "display: inline";
 
   // Loop through each item in the array
+
   for (let i = 0; i < questions.length; i++) {
     let item = questions[i];
 
     // Create a new row for each item
-    let tr = document.createElement("tr");
+    let tr  =  document.createElement("tr");
     let th1 = document.createElement("th");
     let th2 = document.createElement("th");
     let th3 = document.createElement("th");
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let td3 = document.createElement("td");
-    table.appendChild(tr);
+
+    table.appendChild(tr);  
     tr.appendChild(th1);
     th1.textContent = `${i+1}`;
     tr.appendChild(th2);
@@ -31,7 +34,9 @@ function renderAnswers() {
     td1.textContent = `${item.correctAnswer}`;
     tr.appendChild(td2);
     td2.textContent = `${item.userAnswer}`;
-    td2.style.color = item.userAnswer === item.correctAnswer ? "green" : "red"; // Highlight the user's answer in green if it's correct, and red if it's incorrect
+    td2.style.color = item.userAnswer === item.correctAnswer ? "green" : "red";
+
+    // Highlight the user's answer in green if it's correct, and red if it's incorrect
     tr.appendChild(td3);
     td3.textContent = `${item.correctAnswer}`;
   }
@@ -45,7 +50,6 @@ function handleButtonClick(event) {
   renderAnswers();
   button.removeEventListener("click", handleButtonClick);
 }
-
 button.addEventListener("click", handleButtonClick);
 
 
