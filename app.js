@@ -107,9 +107,10 @@ form.addEventListener("submit", (e) => {
   // Save data if valid
   if (isValid) {
     saveUserData(username, password, email, phone, position);
-
+    window.location.href = "index.html";
   }
 });
+
 // End Js for sign up page
 
 // JS for log in page
@@ -126,7 +127,7 @@ loginButton.addEventListener("click", (event) => {
 
   if (storedData && storedData.password === password) {
     // login successful
-
+    window.location.href = "index.html";
   } else {
     // login failed
     alert("Invalid email or password");
