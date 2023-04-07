@@ -15,33 +15,38 @@
   color: black;
   text-decoration: none;
 }
-.infoContainer {
+/* .infoContainer {
+  background-color: rgb(40, 42, 53);
+  color: white;
+  width: 40%;
+  margin: 7rem auto 0px;
+  padding: 3rem;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-around;
-  margin-top: 7rem;
+  flex-direction: column; 
   align-items: center;
-}
+} */
 
-.passorfail {
-  background-color: green;
+/* .passorfail {
+  background-color: rgb(14, 122, 13);
   color: white;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
   border-radius: 5px;
-}
+} */
 .tablehead {
-  background-color: rgb(54, 47, 75);
+  background-color: rgb(32, 40, 50);
   color: white;
   align-items: center;
 }
 
 .resulttable {
-  margin: 0 auto;
-  border-collapse: collapse;
+  margin: 7rem auto 0px;
   width: 80%;
   margin-top: 5rem;
+  display: none;
 }
 
 th,
@@ -50,7 +55,7 @@ td {
   border: 3px solid #ddd !important;
   text-align: center !important;
 }
-.button {
+.button1 {
   display: flex;
   justify-content: center;
   margin-top: 5rem;
