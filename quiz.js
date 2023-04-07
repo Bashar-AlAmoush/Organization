@@ -69,16 +69,14 @@ function displayQuestion() {
         correctAnswer: question[question.correctOption],
       };
 
-      let isRepeated = answers.some((a) => a.question === answer.question);
+      let isRepeated = answers.some((a) => a.question  === answer.question);
       if (!isRepeated) {
         answers.push(answer);
       }
     });
   });
 
-  document.getElementById("question-count").textContent = `Question ${
-    currentQuestion + 1
-  } of ${exam.length}`;
+  document.getElementById("question-count").textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
 }
 
 const nextButton = document.getElementById("next-button");
