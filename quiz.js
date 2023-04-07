@@ -7,26 +7,26 @@ console.log(HTML);
 console.log(CSS);
 
 function getExamTypeFromLocalStorage() {
-    const userData = JSON.parse(localStorage.getItem("users"));
-    const position = userData[0].position;
+  const userData = JSON.parse(localStorage.getItem("users"));
+  const position = userData[0].position;
 
-    let examType;
-    switch (position) {
-      case "2":
-        examType = HTML;
-        break;
-      case "3":
-        examType = CSS;
-        break;
-      case "4":
-        examType = JS;
-        break;
-      default:
-        console.log("Invalid position value.");
-    }
-
-    return examType;
+  let examType;
+  switch (position) {
+    case "2":
+      examType = HTML;
+      break;
+    case "3":
+      examType = CSS;
+      break;
+    case "4":
+      examType = JS;
+      break;
+    default:
+      console.log("Invalid position value.");
   }
+
+  return examType;
+}
 
 function shuffleQuestions(array) {
   const shuffledArray = [];
@@ -38,11 +38,13 @@ function shuffleQuestions(array) {
   }
   return shuffledArray;
 }
-let answers = [];
-let quiz = getExamTypeFromLocalStorage(); 
-let Shuffle = shuffleQuestions(quiz);
 
+let answers = [];
+
+let quiz = getExamTypeFromLocalStorage();
+let Shuffle = shuffleQuestions(quiz);
 const exam = Shuffle;
+
 let currentQuestion = 0;
 
 function displayQuestion() {
@@ -60,22 +62,21 @@ function displayQuestion() {
 
     option.addEventListener("change", function () {
       document.getElementById("next-button").disabled = false;
+
       let answer = {
         question: question.question,
         userAnswer: option.nextSibling.textContent,
         correctAnswer: question[question.correctOption],
       };
 
-      let isRepeated = answers.some((a) => a.question === answer.question);
+      let isRepeated = answers.some((a) => a.question  === answer.question);
       if (!isRepeated) {
         answers.push(answer);
       }
     });
   });
 
-  document.getElementById("question-count").textContent = `Question ${
-    currentQuestion + 1
-  } of ${exam.length}`;
+  document.getElementById("question-count").textContent = `Question ${currentQuestion + 1} of ${exam.length}`;
 }
 
 const nextButton = document.getElementById("next-button");
@@ -83,7 +84,6 @@ nextButton.addEventListener("click", function () {
   if (currentQuestion < exam.length - 1) {
     currentQuestion++;
     displayQuestion();
-
   } else {
     endQuiz();
   }
@@ -112,9 +112,7 @@ function updateTimer() {
   const timerElement = document.getElementById("timer");
   const minutes = Math.floor(quizTime / 60);
   const seconds = quizTime % 60;
-  timerElement.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
+  timerElement.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
 function endQuiz() {
