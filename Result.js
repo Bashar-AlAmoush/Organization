@@ -48,10 +48,10 @@ function result() {
   message.textContent = correctAnswers >= 5 ? `Good Job!` : `Hard Luck :( `;
   quizInfo.appendChild(passOrfail);
   passOrfail.textContent = correctAnswers >= 5 ? `Pass` : `Fail`;
-  passOrfail.style.backgroundColor = correctAnswers >= 5 ? `green` : `red`;
+  // passOrfail.style.backgroundColor = correctAnswers >= 5 ? `green` : `red`;
   passOrfail.style.padding = `8px 10px 8px 10px`;
   passOrfail.style.borderRadius = `5px`;
-  quizInfo.style.backgroundColor = "rgb(40, 42, 53)";
+  quizInfo.style.backgroundColor = correctAnswers >= 5 ? `green` : `red`;
   quizInfo.style.color = "white";
   quizInfo.style.width = "40%";
   quizInfo.style.margin = "7rem auto 0px";
@@ -84,15 +84,16 @@ function renderAnswers() {
     td2.textContent = `${item.question}`;
     tr.appendChild(td3);
     td3.textContent = `${item.userAnswer}`;
-    td3.style.color =
-      item.userAnswer === item.correctAnswer
-        ? "rgb(71,142,141)"
-        : "	rgb(136, 8, 8)"; // Highlight the user's answer in green if it's correct, and red if it's incorrect
 
     tr.appendChild(td4);
     td4.textContent = `${item.correctAnswer}`;
     tr.style.backgroundColor = `white`;
     table.style.margin = "6rem auto";
+    tr.style.backgroundColor =
+      item.userAnswer === item.correctAnswer
+        ? "rgb(71,142,141)"
+        : "	rgb(136, 8, 8)"; // Highlight the user's answer in green if it's correct, and red if it's incorrect
+    table.style.color = "white";
   }
 }
 renderAnswers();
