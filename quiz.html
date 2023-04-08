@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="quiz.css">
 
 </head>
-<body class="felx">
+<body class="felx bg-light">
 
     <div class="container mt-sm-5 my-1">
-         
+         <div class="mt-3" id="display-name">
+
+         </div>
 
         <div class="timer-and-count">
             <div class="timer" id="timer"></div>
@@ -40,9 +42,16 @@
             </div>
         </div>
         <div class="ml-auto px-5 mr-sm-5">
-            <button class="btn btn-success" id="next-button">Next</button>
+            <button class="btn btn-light" id="next-button">Next</button>
         </div>
     </div>
+    
+    <footer class=" text-center" style="background-color: #19376D; position: fixed; bottom: 0; width: 100%; color: white;">
+   
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: pixel pro
+    </div>
+    <!-- Copyright -->
+  </footer>
     
     <script type="module" src="quiz.js"></script>
     <script type="module" src="questions.js"></script>
