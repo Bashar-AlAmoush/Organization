@@ -41,11 +41,11 @@ function shuffleQuestions(array) {
 
 let answers = [];
 
-let quiz = getExamTypeFromLocalStorage();
+const quiz = getExamTypeFromLocalStorage();
 let Shuffle = shuffleQuestions(quiz);
 const exam = Shuffle;
-
 let currentQuestion = 0;
+
 
 function displayQuestion() {
   let question = exam[currentQuestion];
@@ -90,7 +90,7 @@ nextButton.addEventListener("click", function () {
 });
 
 // Timer
-let quizTime = 1 * 60; // 8 minutes in seconds
+let quizTime = 10 * 60; // 8 minutes in seconds
 let intervalId = null;
 
 function startQuiz() {
@@ -125,3 +125,42 @@ function endQuiz() {
 window.onload = function () {
   startQuiz();
 };
+
+function displayName(){
+  const userInfo = JSON.parse(localStorage.getItem("users"));
+  let div = document.getElementById("display-name");
+  let username = document.createElement("h3");
+  const userName = userInfo[0].username;
+  
+  div.appendChild(username); 
+  username.textContent = ` Name: ${userName}`;
+  let exam = document.createElement("h4");
+  const Exam = getExamType();
+  exam.textContent=`Exam: ${Exam}  `;
+  div.appendChild(exam);
+
+}
+displayName();
+
+function getExamType() {
+  const userData = JSON.parse(localStorage.getItem("users"));
+  const position = userData[0].position;
+
+  let examType;
+  switch (position) {
+    case "2":
+      examType = "HTML";
+      break;
+    case "3":
+      examType = "CSS";
+      break;
+    case "4":
+      examType = "JavaScript";
+      break;
+    default:
+      console.log("Invalid position value.");
+  }
+
+  return examType;
+}
+ 
