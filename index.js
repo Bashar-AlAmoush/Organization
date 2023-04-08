@@ -1,4 +1,4 @@
-const userInfo = JSON.parse(localStorage.getItem('users'));
+const userInfo = JSON.parse(sessionStorage.getItem("userse"));
 
 function renderLoginAndSignUp() {
 const ul = document.getElementById('ul');
@@ -23,7 +23,7 @@ ul.appendChild(listItem2);
 }
 
 function renderUserNameAndLogOut(){
-  const userName = userInfo[0].username;
+  const userName = userInfo.username;
   const ul = document.getElementById('ul');
 
   const listItem1 = document.createElement('li');
@@ -36,7 +36,7 @@ function renderUserNameAndLogOut(){
   const link2 = document.createElement('a');
   link2.textContent =  "Log Out";
   link2.addEventListener('click', () => {
-    localStorage.clear(); 
+    sessionStorage.clear(); 
     window.location.href = 'home.html';
     window.location.reload();
   });
@@ -44,17 +44,62 @@ function renderUserNameAndLogOut(){
   ul.appendChild(listItem2);
 }
 
-if (userInfo && userInfo.length > 0) {
+if (userInfo ) {
   renderUserNameAndLogOut();
 } else {
   renderLoginAndSignUp();
 }
+// console.log(userInfo[0].username);
 
 const button = document.getElementById("submit");
 button.addEventListener("click", function () {
-  if (userInfo && userInfo.length > 0) {
+  if (userInfo ) {
     window.location.href = "quiz.html";
   } else {
     window.location.href = "registration.html";
   }
 });
+  let aboutposition = " "
+  let description = ""
+
+function getExamTypeFromLocalStorage() {
+  const userData = JSON.parse(sessionStorage.getItem("userse"));
+  const positionn = userData.position;
+  
+
+  let examType;
+  switch (positionn) {
+    case "2":
+      examType = "HTML";
+      aboutposition = " HTML Developer"
+      description=" An HTML developer is a professional web designer who uses HTML to create website layouts based on templates and wireframes. ";
+      break;
+    case "3":
+      examType = "CSS";
+      aboutposition = " Front-End Developer"
+      description = " Develop complex interactive front-end systems for high-traffic fintech websites";
+      break;
+    case "4":
+      examType = "JS";
+      aboutposition = "JavaScript Developer "
+      description = "Work with fellow front and back end developers."
+      break;
+    default:
+      console.log("Invalid position value.");
+  }
+
+  return examType;
+}
+const positionnn=getExamTypeFromLocalStorage();
+console.log(positionnn);
+console.log(aboutposition);
+console.log(description);
+function setdata(){
+const positionn=document.getElementById('aboutp')
+const des=document.getElementById('description')
+const examm=document.getElementById('exam')
+positionn.textContent = aboutposition ;
+des.textContent=description;
+examm.textContent=positionnn+" "+ "exam";
+}
+setdata();

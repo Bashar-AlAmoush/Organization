@@ -52,7 +52,9 @@ function isUsernameTaken(username) {
 function saveUserData(username, password, email, phone, position) {
   const users = JSON.parse(localStorage.getItem("users") || "[]");
   users.push({ username, password, email, phone, position });
+  const userse={ username,password,position,email};
   localStorage.setItem("users", JSON.stringify(users));
+  sessionStorage.setItem("userse", JSON.stringify(userse));
 }
 
 // Handle form submission
@@ -68,7 +70,7 @@ form.addEventListener("submit", (e) => {
   const position = positionInput.value;
   const password = passwordInput.value.trim();
   const confirmPassword = confirmPasswordInput.value.trim();
-  const username = `${firstName.toLowerCase()}.${lastName.toLowerCase()}`;
+  const username = `${firstName.toLowerCase()}-${lastName.toLowerCase()}`;
 
   let isValid = true;
   if (!validateUsername(username)) {
@@ -118,12 +120,20 @@ form.addEventListener("submit", (e) => {
 const loginButton = document.getElementById("loginButton");
 
 loginButton.addEventListener("click", (event) => {
+  
+
   event.preventDefault();
   const email = document.getElementById("email1").value.toLowerCase();
   const password = document.getElementById("password1").value;
 
   const users = JSON.parse(localStorage.getItem("users") || "[]");
   const storedData = users.find((user) => user.email.toLowerCase() === email);
+  const username=users[0].username;
+  const postion=users[0].position;
+  const userse={username,password,postion,password};
+  console.log(username);
+  sessionStorage.setItem("userse", JSON.stringify(userse));
+ 
 
   if (storedData && storedData.password === password) {
     // login successful
