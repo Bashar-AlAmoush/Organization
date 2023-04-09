@@ -95,7 +95,7 @@ let quizTime = 10 * 60; // 8 minutes in seconds
 let intervalId = null;
 
 function startQuiz() {
-  // quizTime = localStorage.getItem("quizTime") || quizTime;
+  quizTime = localStorage.getItem("quizTime") || quizTime;
 
   displayQuestion();
   intervalId = setInterval(decrementTime, 1000);
