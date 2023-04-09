@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Sono:wght@300;400;500&family=Source+Code+Pro:ital,wght@1,200;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,700;1,700&display=swap');
 * {
-  font-family: "Edu NSW ACT Foundation";
+  font-family: 'IBM Plex Mono', monospace;
 }
+
+
 .navbar {
   margin-bottom: 0;
   background-color: #031b3b;
@@ -42,9 +45,9 @@
   width: 100%;
   height: 700px;
 }
-.pixelPro {
+/* .pixelPro {
   position: absolute;
-  /* font-weight: bold; */
+  font-weight: bold;
   color: #031b3b;
   width: 600px;
   height: 250px;
@@ -54,7 +57,7 @@
   font-size: 15px;
   padding: 20px;
   border-radius: 20px;
-}
+} */
 /* #submit {
   background-color: #1f2131;
   color: white;
@@ -102,3 +105,52 @@
     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
   }
 }
+
+.hero {
+  position: relative;
+}
+
+.hero-img {
+  position: relative;
+  height: 100vh;
+}
+
+.hero-img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.pixelPro {
+  position: absolute;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000000;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.pixelPro h1 {
+  font-size: 3rem;
+  animation: slideup 2s;
+}
+
+@keyframes slideup {
+  from { transform: translateY(100px); }
+  to   { transform: translateY(0); }
+}
+
+.pixelPro p {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  animation: slideup 2s;
+}
+
+
