@@ -1,6 +1,25 @@
 let questions = JSON.parse(sessionStorage.getItem("storedAnswers"));
 const userInfo = JSON.parse(sessionStorage.getItem("userse"));
 
+
+function renderUserNameAndLogOut() {
+  const userName = userInfo.username;
+  const ul = document.getElementById("ul");
+
+  const listItem2 = document.createElement("li");
+  const link2 = document.createElement("a");
+  link2.textContent = "Log Out";
+  link2.addEventListener("click", () => {
+    sessionStorage.clear();
+    window.location.href = "index.html";
+    window.location.reload();
+  });
+  listItem2.appendChild(link2);
+  ul.appendChild(listItem2);
+}
+if (userInfo) {
+  renderUserNameAndLogOut();
+}
 // use this to render the name and the postion of the user
 
 function getExamTypeFromLocalStorage() {
