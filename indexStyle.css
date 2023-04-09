@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Sono:wght@300;400;500&family=Source+Code+Pro:ital,wght@1,200;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,700;1,700&display=swap');
 * {
-  font-family: "Edu NSW ACT Foundation";
+  font-family: 'IBM Plex Mono', monospace;
 }
+
+
 .navbar {
   margin-bottom: 0;
   background-color: #031b3b;
