@@ -80,7 +80,6 @@ function result() {
   quizInfo.style.borderRadius = "10px";
   quizInfo.style.border = "solid 3px white";
   quizInfo.style.width = "33rem";
-  quizInfo.style.margin = "0 auto";
   quizInfo.style.backgroundColor = `white`;
   quizInfo.style.color = "black";
   quizInfo.style.textAlign = "center";
