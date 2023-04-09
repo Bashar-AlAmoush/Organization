@@ -1,7 +1,6 @@
 let questions = JSON.parse(sessionStorage.getItem("storedAnswers"));
 const userInfo = JSON.parse(sessionStorage.getItem("userse"));
 
-
 function renderUserNameAndLogOut() {
   const userName = userInfo.username;
   const ul = document.getElementById("ul");
@@ -12,7 +11,6 @@ function renderUserNameAndLogOut() {
   link2.addEventListener("click", () => {
     sessionStorage.clear();
     window.location.href = "index.html";
-    window.location.reload();
   });
   listItem2.appendChild(link2);
   ul.appendChild(listItem2);

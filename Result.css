@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Sono:wght@300;400;500&family=Source+Code+Pro:ital,wght@1,200;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: "Edu NSW ACT Foundation";
 }
 .navbar {
   margin-bottom: 0;
@@ -9,18 +9,22 @@
   border: 0;
   letter-spacing: 4px;
   border-radius: 0;
-  font-family: Montserrat, sans-serif;
-  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 .navbar li {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  cursor: pointer;
 }
 .navbar li a,
 .navbar .navbar-brand {
   color: #fff !important;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
@@ -92,5 +96,5 @@ td {
 }
 footer {
   position: relative;
-  top: 10rem;
+  top: 30rem;
 }

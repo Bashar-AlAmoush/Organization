@@ -9,18 +9,22 @@
   border: 0;
   letter-spacing: 4px;
   border-radius: 0;
-  font-family: Montserrat, sans-serif;
-  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 .navbar li {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  cursor: pointer;
 }
 .navbar li a,
 .navbar .navbar-brand {
   color: #fff !important;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
@@ -46,7 +50,7 @@
   height: 250px;
   background-color: rgba(220, 220, 220, 0.397);
   left: 15rem;
-  top: 10rem;
+  top: 8rem;
   font-size: 15px;
   padding: 20px;
   border-radius: 20px;
