@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Sono:wght@300;400;500&family=Source+Code+Pro:ital,wght@1,200;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 * {
-  font-family: "Edu NSW ACT Foundation", monospace;
   margin: 0;
 }
 body {
   background-color: white !important;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 #asd {
   height: 85rem;
@@ -68,9 +69,9 @@ body {
 }
 
 #resulttable {
-  margin: 7rem auto 0px;
-  width: 80%;
-  margin-top: 5rem;
+  /* margin: 7rem auto 0px; */
+  /* width: 80%; */
+  /* margin-top: 5rem; */
   display: none;
 }
 
@@ -112,8 +113,6 @@ td {
 [transition-style="in:circle:hesitate"] {
   animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-hesitate both;
 }
-
-
 
 .container {
   background-color: #fff;
@@ -201,4 +200,3 @@ td {
 #next-button:hover {
   background-color: #0069d9;
 }
-
