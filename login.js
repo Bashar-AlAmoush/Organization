@@ -10,8 +10,8 @@ loginButton.addEventListener("click", (event) => {
   const users = JSON.parse(localStorage.getItem("users") || "[]");
   const storedData = users.find((user) => user.email.toLowerCase() === email);
   const username=users[0].username;
-  const postion=users[0].position;
-  const userse={username,password,postion,password};
+  const position=users[0].position;
+  const userse={username,password,position};
   console.log(username);
   sessionStorage.setItem("userse", JSON.stringify(userse));
  

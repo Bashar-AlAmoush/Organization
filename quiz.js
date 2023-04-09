@@ -7,18 +7,18 @@ console.log(HTML);
 console.log(CSS);
 
 function hello(){
-  const user = JSON.parse(localStorage.getItem("users"));
-  const userName = user[0].username;
+  const user = JSON.parse(sessionStorage.getItem("userse"));
+  const userName = user.username;
   alert(`Welcome ${userName} The exam will start now`)
 }
 
 hello();
 function getExamTypeFromLocalStorage() {
-  const userData = JSON.parse(localStorage.getItem("users"));
-  const position = userData[0].position;
+  const user = JSON.parse(sessionStorage.getItem("userse"));
+  const positionn = user.position;
 
   let examType;
-  switch (position) {
+  switch (positionn) {
     case "2":
       examType = HTML;
       break;
@@ -150,11 +150,11 @@ function displayName(){
 displayName();
 
 function getExamType() {
-  const userData = JSON.parse(localStorage.getItem("users"));
-  const position = userData[0].position;
+  const userData = JSON.parse(sessionStorage.getItem("userse"));
+  const positionn = userData.position;
 
   let examType;
-  switch (position) {
+  switch (positionn) {
     case "2":
       examType = "HTML";
       break;

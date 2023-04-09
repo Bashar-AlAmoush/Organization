@@ -1,11 +1,11 @@
 let questions = JSON.parse(sessionStorage.getItem("storedAnswers"));
-const userInfo = JSON.parse(localStorage.getItem("users"));
+const userInfo = JSON.parse(sessionStorage.getItem("userse"));
 
 // use this to render the name and the postion of the user
 
 function getExamTypeFromLocalStorage() {
-  const userData = JSON.parse(localStorage.getItem("users"));
-  const position = userData[0].position;
+  const userData = JSON.parse(sessionStorage.getItem("userse"));
+  const position = userData.position;
 
   let examType;
   switch (position) {
@@ -26,7 +26,7 @@ function getExamTypeFromLocalStorage() {
 }
 const examType = getExamTypeFromLocalStorage();
 function result() {
-  const userName = userInfo[0].username;
+  const userName = userInfo.username;
 
   let quizInfo = document.getElementById("quizInfo");
   let username = document.createElement("h4");

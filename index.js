@@ -49,7 +49,7 @@ if (userInfo) {
 } else {
   renderLoginAndSignUp();
 }
-// console.log(userInfo[0].username);
+console.log(userInfo.username);
 
 const button = document.getElementById("submit");
 button.addEventListener("click", function () {
@@ -63,8 +63,9 @@ let aboutposition = " ";
 let description = "";
 
 function getExamTypeFromLocalStorage() {
-  const userData = JSON.parse(sessionStorage.getItem("userse"));
-  const positionn = userData.position;
+  const user = JSON.parse(sessionStorage.getItem("userse"));
+  const positionn = user.position;
+  console.log(positionn);
 
   let examType;
   switch (positionn) {
