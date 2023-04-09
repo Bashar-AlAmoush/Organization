@@ -53,7 +53,7 @@ if (userInfo) {
 const button = document.getElementById("submit");
 button.addEventListener("click", function () {
   if (userInfo) {
-    window.location.href = "quiz.html";
+    window.location.href = "ExamWelcomepage.html";
   } else {
     window.location.href = "registration.html";
   }
