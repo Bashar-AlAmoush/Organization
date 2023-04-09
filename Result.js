@@ -46,37 +46,44 @@ function result() {
   const userName = userInfo.username;
 
   let quizInfo = document.getElementById("quizInfo");
-  let username = document.createElement("h4");
-  let Result = document.createElement("h5");
-  let examtype = document.createElement("h5");
-  let Score = document.createElement("h6");
-  let message = document.createElement("p");
-  let passOrfail = document.createElement("h4");
+  let username = document.createElement("h1");
+  let Result = document.createElement("h2");
+  let examtype = document.createElement("h2");
+  let Score = document.createElement("h2");
+  let yo1 = document.createElement("img");
+  // let passOrfail = document.createElement("h2");
+  let asdf = document.getElementById("asd");
   quizInfo.appendChild(username);
   username.textContent = ` ${userName} `;
   quizInfo.appendChild(examtype);
   examtype.textContent = ` ${examType} `;
-
+  asdf.style.backgroundImage =
+    correctAnswers >= 5
+      ? `linear-gradient(green, white)`
+      : `linear-gradient(red, rgb(216, 87, 87))`;
   quizInfo.appendChild(Result);
   Result.textContent = `Result`;
   quizInfo.appendChild(Score);
   Result.textContent = `Score : ${correctAnswers}/10`;
-  quizInfo.appendChild(message);
-  message.textContent = correctAnswers >= 5 ? `Good Job!` : `Hard Luck :( `;
-  quizInfo.appendChild(passOrfail);
-  passOrfail.textContent = correctAnswers >= 5 ? `Pass` : `Fail`;
+  quizInfo.appendChild(yo1);
+  yo1.src = correctAnswers >= 5 ? `Images/yes.png` : `Images/no.png`;
+  yo1.style.width = "200px";
+  yo1.style.height = "200px";
+  // quizInfo.appendChild(passOrfail);
+  // passOrfail.textContent = correctAnswers >= 5 ? `Pass` : `Fail`;
   // passOrfail.style.backgroundColor = correctAnswers >= 5 ? `green` : `red`;
-  passOrfail.style.padding = `8px 10px 8px 10px`;
-  passOrfail.style.borderRadius = `5px`;
-  quizInfo.style.backgroundColor = correctAnswers >= 5 ? `green` : `red`;
+  // passOrfail.style.padding = `8px 10px 8px 10px`;
+  // passOrfail.style.borderRadius = `5px`;
   quizInfo.style.color = "white";
-  quizInfo.style.width = "40%";
-  quizInfo.style.margin = "7rem auto 0px";
+  // quizInfo.style.margin = "7rem auto 0px";
   quizInfo.style.padding = "3rem";
   quizInfo.style.borderRadius = "10px";
-  quizInfo.style.display = "flex";
-  quizInfo.style.flexDirection = "column";
-  quizInfo.style.alignItems = "center";
+  quizInfo.style.border = "solid 3px white";
+  quizInfo.style.width = "33rem";
+  quizInfo.style.margin = "0 auto";
+  quizInfo.style.backgroundColor = `white`;
+  quizInfo.style.color = "black";
+  quizInfo.style.textAlign = "center";
 }
 window.addEventListener("load", result);
 
@@ -106,11 +113,9 @@ function renderAnswers() {
     td4.textContent = `${item.correctAnswer}`;
     tr.style.backgroundColor = `white`;
     table.style.margin = "6rem auto";
-    tr.style.backgroundColor =
-      item.userAnswer === item.correctAnswer
-        ? "rgb(71,142,141)"
-        : "	rgb(136, 8, 8)"; // Highlight the user's answer in green if it's correct, and red if it's incorrect
-    table.style.color = "white";
+    td3.style.color = item.userAnswer === item.correctAnswer ? "green" : "	red"; // Highlight the user's answer in green if it's correct, and red if it's incorrect
+    table.style.color = "black";
+    table.style.backgroundColor = "red";
   }
 }
 renderAnswers();

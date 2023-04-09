@@ -21,11 +21,16 @@ function renderLoginAndSignUp() {
   ul.appendChild(listItem1);
   ul.appendChild(listItem2);
 }
-
+const imagePo = document.getElementById("imageP");
+let srcc = "";
 function renderUserNameAndLogOut() {
   const userName = userInfo.username;
   const ul = document.getElementById("ul");
+  const well = document.getElementById("wel");
 
+  imagePo.textContent;
+  well.textContent = `WELCOME   ${userName.toUpperCase()} !`;
+  well.style.textAlign = "center";
   const listItem1 = document.createElement("li");
   const link1 = document.createElement("a");
   link1.textContent = userName;
@@ -73,17 +78,23 @@ function getExamTypeFromLocalStorage() {
       aboutposition = " HTML Developer";
       description =
         " An HTML developer is a professional web designer who uses HTML to create website layouts based on templates and wireframes. ";
+      srcc = "Images/HTML.png";
+
       break;
     case "3":
       examType = "CSS";
       aboutposition = " Front-End Developer";
       description =
         " Develop complex interactive front-end systems for high-traffic fintech websites";
+      srcc = "Images/CSS.png";
+
       break;
     case "4":
       examType = "JS";
       aboutposition = "JavaScript Developer ";
       description = "Work with fellow front and back end developers.";
+      srcc = "Images/JS.png";
+
       break;
     default:
       console.log("Invalid position value.");
@@ -95,6 +106,10 @@ const positionnn = getExamTypeFromLocalStorage();
 console.log(positionnn);
 console.log(aboutposition);
 console.log(description);
+imagePo.src = srcc;
+imagePo.style.width = "400px";
+imagePo.style.height = "500px";
+imagePo.style.marginLeft = "200px";
 function setdata() {
   const positionn = document.getElementById("aboutp");
   const des = document.getElementById("description");

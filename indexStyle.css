@@ -1,10 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Sono:wght@300;400;500&family=Source+Code+Pro:ital,wght@1,200;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,700;1,700&display=swap');
 * {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "Edu NSW ACT Foundation", monospace;
 }
-
 
 .navbar {
   margin-bottom: 0;
@@ -40,12 +38,14 @@
   border-color: transparent;
   color: #fff !important;
 }
-
+#wel {
+  color: #4386ff;
+}
 .hero img {
   width: 100%;
   height: 700px;
 }
-/* .pixelPro {
+.pixelPro {
   position: absolute;
   font-weight: bold;
   color: #031b3b;
@@ -57,23 +57,29 @@
   font-size: 15px;
   padding: 20px;
   border-radius: 20px;
-} */
-/* #submit {
-  background-color: #1f2131;
+}
+#submit {
+  font-family: "Edu NSW ACT Foundation";
+  color: white;
+  font-size: large;
+}
+#submit {
+  /* background-color: #1f2131;
   color: white;
   border-radius: 0;
-  padding: 5px;
+  padding: 5px; */
+  cursor: pointer;
 }
-#submit:hover {
-  background-image: linear-gradient(45deg, #031b3b, #dfe9f2);
+/* #submit:hover { */
+/* background-image: linear-gradient(45deg, #031b3b, #dfe9f2);
   color: white;
-  background-color: white;
-} */
-.anii {
+  background-color: white; */
+/* } */
+/* .anii {
   border-radius: 24px 101px 23px 138px;
   border: 8px solid #031b3b;
-  /* border-image: linear-gradient(black, grey, white) 1; */
-}
+  border-image: linear-gradient(black, grey, white) 1;
+} */
 .buu {
   border: none;
   color: #fff;
@@ -121,36 +127,100 @@
   width: 100%;
 }
 
-.pixelPro {
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 500px;
+  min-height: 200px;
+  display: grid;
+  grid-template-rows: 20px 50px 1fr 50px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.card__link,
+.card__exit,
+.card__icon {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card__link::after {
   position: absolute;
-  
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #000000;
-  animation: fadein 2s;
+  top: 25px;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.card__link:hover::after {
+  width: 100%;
 }
 
-.pixelPro h1 {
-  font-size: 3rem;
-  animation: slideup 2s;
+.card__exit {
+  grid-row: 1/2;
+  justify-self: end;
 }
 
-@keyframes slideup {
-  from { transform: translateY(100px); }
-  to   { transform: translateY(0); }
+.card__icon {
+  grid-row: 2/3;
+  font-size: 30px;
 }
 
-.pixelPro p {
-  font-size: 1.5rem;
-  margin: 2rem 0;
-  animation: slideup 2s;
+.card__title {
+  grid-row: 3/4;
+  font-weight: 400;
+  color: black;
 }
 
+.card__apply {
+  grid-row: 4/5;
+  align-self: center;
+}
 
+/* CARD BACKGROUNDS */
+
+.card-1 {
+  background: radial-gradient(#1cd9ff, #4386ff);
+}
+
+/* .card-2 {
+  background: radial-gradient(#fbc1cc, #fa99b2);
+}
+
+.card-3 {
+  background: radial-gradient(#76b2fe, #b69efe);
+}
+
+.card-4 {
+  background: radial-gradient(#60efbc, #58d5c9);
+}
+
+.card-5 {
+  background: radial-gradient(#f588d8, #c0a3e5);
+} */
+
+/* RESPONSIVE */
+
+@media (max-width: 1600px) {
+  .cards {
+    justify-content: center;
+  }
+}
