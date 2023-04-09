@@ -101,6 +101,8 @@ let quizTime = 10 * 60; // 8 minutes in seconds
 let intervalId = null;
 
 function startQuiz() {
+  quizTime = localStorage.getItem("quizTime") || quizTime;
+
   displayQuestion();
   intervalId = setInterval(decrementTime, 1000);
 }
@@ -113,6 +115,9 @@ function decrementTime() {
     clearInterval(intervalId);
     endQuiz();
   }
+
+  localStorage.setItem("quizTime", quizTime);
+
 }
 
 function updateTimer() {
@@ -134,10 +139,10 @@ window.onload = function () {
 };
 
 function displayName(){
-  const userInfo = JSON.parse(localStorage.getItem("users"));
+  const userInfo = JSON.parse(sessionStorage.getItem("userse"));
   let div = document.getElementById("display-name");
   let username = document.createElement("h3");
-  const userName = userInfo[0].username;
+  const userName = userInfo.username;
   
   div.appendChild(username); 
   username.textContent = ` Name: ${userName}`;
