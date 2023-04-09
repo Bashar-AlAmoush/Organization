@@ -9,8 +9,8 @@ function renderUserNameAndLogOut() {
   const link2 = document.createElement("a");
   link2.textContent = "Log Out";
   link2.addEventListener("click", () => {
-    sessionStorage.clear();
     window.location.href = "index.html";
+    sessionStorage.clear();
   });
   listItem2.appendChild(link2);
   ul.appendChild(listItem2);

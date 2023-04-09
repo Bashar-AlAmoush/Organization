@@ -37,8 +37,7 @@ function renderUserNameAndLogOut() {
   link2.textContent = "Log Out";
   link2.addEventListener("click", () => {
     sessionStorage.clear();
-    window.location.href = "home.html";
-    window.location.reload();
+    window.location.href = "index.html";
   });
   listItem2.appendChild(link2);
   ul.appendChild(listItem2);
@@ -49,7 +48,7 @@ if (userInfo) {
 } else {
   renderLoginAndSignUp();
 }
-console.log(userInfo.username);
+// console.log(userInfo.username);
 
 const button = document.getElementById("submit");
 button.addEventListener("click", function () {
