@@ -6,6 +6,13 @@ console.log(JS);
 console.log(HTML);
 console.log(CSS);
 
+function hello(){
+  const user = JSON.parse(localStorage.getItem("users"));
+  const userName = user[0].username;
+  alert(`Welcome ${userName} The exam will start now`)
+}
+
+hello();
 function getExamTypeFromLocalStorage() {
   const userData = JSON.parse(localStorage.getItem("users"));
   const position = userData[0].position;

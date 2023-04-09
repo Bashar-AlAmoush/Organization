@@ -2,7 +2,7 @@
  {
     background: #f093fb;
     
-    background: -webkit-linear-gradient(to bottom right, rgb(180, 112, 60), rgb(190, 115, 49));
+    background: -webkit-linear-gradient(to bottom right, #57C5B6, #159895);
     
     background: linear-gradient(to bottom right, #4e96ee, rgb(213, 129, 45))
     }
@@ -27,22 +27,21 @@
 
 
 
+
     /* Log in page style */
     .gradient-custom-2 {
-        /* fallback for old browsers */
-        background: #fccb90;
-        
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right, #ee7724, #e1ac28, #dd3675, #b9912c);
+       
         
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right, #ee7724, #d8a736, #c17835, #997321);
+        background: linear-gradient(to right, #1A5F7A, #031b3b, #031b3b, #1A5F7A);
         }
         
         @media (min-width: 768px)
          {
         .gradient-form {
-        height: 100vh !important;
+        height: 70vh !important;
+        
+
         }
         }
         @media (min-width: 769px)
@@ -65,9 +64,8 @@
 
         /* Nav bar style */
         .navbar {
-            background-color: #000000;
-          }
-          
+          background-color: #031b3b;
+      }
           .nav-link {
             color: white;
           }
@@ -82,3 +80,156 @@
 
           
           
+          /* button */
+          .btn {
+            --border-color: linear-gradient(-45deg, #1A5F7A, #159895, #00fffb);
+            --border-width: .125em;
+            --curve-size: .5em;
+            --blur: 30px;
+            --bg: #031b3b;
+            --color: #afffff;
+            color: var(--color);
+              /* use position: relative; so that BG is only for .btn */
+            position: relative;
+            isolation: isolate;
+            display: inline-grid;
+            place-content: center;
+            padding: .5em 1.5em;
+            font-size: 17px;
+            border: 0;
+            text-transform: uppercase;
+            box-shadow: 10px 10px 20px #031b3b;
+            clip-path: polygon(
+                      /* Top-left */
+                      0% var(--curve-size),
+          
+                      var(--curve-size) 0,
+                      /* top-right */
+                      100% 0,
+                      100% calc(100% - var(--curve-size)),
+          
+                      /* bottom-right 1 */
+                      calc(100% - var(--curve-size)) 100%,
+                      /* bottom-right 2 */
+                      0 100%);
+            transition: color 250ms;
+          }
+          
+          .btn::after,
+          .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+          }
+          
+          .btn::before {
+            background: var(--border-color);
+            background-size: 300% 300%;
+            animation: move-bg7234 5s ease infinite;
+            z-index: -2;
+          }
+          
+          @keyframes move-bg7234 {
+            0% {
+              background-position: 31% 0%
+            }
+          
+            50% {
+              background-position: 70% 100%
+            }
+          
+            100% {
+              background-position: 31% 0%
+            }
+          }
+          
+          .btn::after {
+            background: var(--bg);
+            z-index: -1;
+            clip-path: polygon(
+                      /* Top-left */
+                      var(--border-width) 
+                      calc(var(--curve-size) + var(--border-width) * .5),
+          
+                      calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+          
+                      /* top-right */
+                      calc(100% - var(--border-width)) 
+                      var(--border-width),
+          
+                      calc(100% - var(--border-width)) 
+                      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+          
+                      /* bottom-right 1 */
+                      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+                      /* bottom-right 2 */
+                      var(--border-width) calc(100% - var(--border-width)));
+            transition: clip-path 500ms;
+          }
+          
+          .btn:where(:hover, :focus)::after {
+            clip-path: polygon(
+                          /* Top-left */
+                          calc(100% - var(--border-width)) 
+          
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+              
+                          calc(100% - var(--border-width))
+          
+                          var(--border-width),
+              
+                          /* top-right */
+                          calc(100% - var(--border-width))
+          
+                           var(--border-width),
+              
+                          calc(100% - var(--border-width)) 
+          
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+              
+                          /* bottom-right 1 */
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                          calc(100% - var(--border-width)),
+          
+                          /* bottom-right 2 */
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                          calc(100% - var(--border-width)));
+            transition: 200ms;
+          }
+          
+          .btn:where(:hover, :focus) {
+            color: #fff;
+          }
+
+
+
+           .ttrr
+           {
+            font-weight: bold;
+            color:#031b3b;
+           }
+
+           @keyframes fadeInUp {
+            0% {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          .card-registration {
+            animation: fadeInUp 0.5s ease-in-out forwards;
+          }
+
+
+          .card-registration {
+            box-shadow: 0 0 25px rgba(0,0,0,.25);
+          }
+
+.colorbg
+{
+  background-color: #031b3b;
+}

@@ -1,11 +1,11 @@
 // JS sign up
 
 // Get form elements
-const form = document.querySelector("form");
+const form = document.getElementById("form1");
 const firstNameInput = document.getElementById("firstName");
 const lastNameInput = document.getElementById("lastName");
 const genderInputs = document.getElementsByName("inlineRadioOptions");
-const emailInput = document.getElementById("emailAddress");
+const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phoneNumber");
 const positionInput = document.querySelector(".select");
 const passwordInput = document.getElementById("password");
@@ -117,31 +117,6 @@ form.addEventListener("submit", (e) => {
 
 // JS for log in page
 
-const loginButton = document.getElementById("loginButton");
 
-loginButton.addEventListener("click", (event) => {
-  
-
-  event.preventDefault();
-  const email = document.getElementById("email1").value.toLowerCase();
-  const password = document.getElementById("password1").value;
-
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
-  const storedData = users.find((user) => user.email.toLowerCase() === email);
-  const username=users[0].username;
-  const postion=users[0].position;
-  const userse={username,password,postion,password};
-  console.log(username);
-  sessionStorage.setItem("userse", JSON.stringify(userse));
- 
-
-  if (storedData && storedData.password === password) {
-    // login successful
-    window.location.href = "index.html";
-  } else {
-    // login failed
-    alert("Invalid email or password");
-  }
-});
 
 // End JS for log in page
