@@ -115,8 +115,3 @@ form.addEventListener("submit", (e) => {
 
 // End Js for sign up page
 
-// JS for log in page
-
-
-
-// End JS for log in page

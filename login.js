@@ -2,6 +2,7 @@ const loginButton = document.getElementById("loginButton");
 
 loginButton.addEventListener("click", (event) => {
   
+  let message = [];
 
   event.preventDefault();
   const email = document.getElementById("email1").value.toLowerCase();
@@ -9,18 +10,21 @@ loginButton.addEventListener("click", (event) => {
 
   const users = JSON.parse(localStorage.getItem("users") || "[]");
   const storedData = users.find((user) => user.email.toLowerCase() === email);
-  const username=users[0].username;
-  const position=users[0].position;
-  const userse={username,password,position};
-  console.log(username);
-  sessionStorage.setItem("userse", JSON.stringify(userse));
- 
-
+  
   if (storedData && storedData.password === password) {
     // login successful
+    const { username, position } = storedData;
+    const userse = { username, password, position };
+    console.log(username);
+    sessionStorage.setItem("userse", JSON.stringify(userse));
     window.location.href = "index.html";
   } else {
     // login failed
-    alert("Invalid email or password");
+    message += "<li>Invalid email or password</li>";
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.classList.remove("d-none");
+    const errors1 = document.getElementById("errors1");
+    errors1.innerHTML = message;
   }
+    
 });

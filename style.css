@@ -226,3 +226,9 @@
   width: 100%;
   border:#031b3b solid 1px;
 }
+
+
+
+div #errors1 {
+list-style-type: none;
+}
