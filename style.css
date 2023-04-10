@@ -2,9 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,700;1,700&display=swap');
 * {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Times New Roman', Times, serif;
 }
-
 
 /* Nav bar style */
 
@@ -71,7 +70,7 @@
 /* Log in page style */
 .gradient-custom-2 {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #1a5f7a, #031b3b, #031b3b, #1a5f7a);
+  background: linear-gradient(to right, #031b3b, #031b3b, #031b3b, #031b3b);
 }
 
 @media (min-width: 768px) {
