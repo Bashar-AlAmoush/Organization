@@ -66,6 +66,10 @@
 .form-control:hover {
   box-shadow: 0px 0px 18px 3px #4e96ee;
 }
+.form-control
+{
+  border: #031b3b solid 1px;
+}
 
 /* Log in page style */
 .gradient-custom-2 {
@@ -214,4 +218,11 @@
 
 .colorbg {
   background-color: #031b3b;
+}
+
+
+
+.dropdown-toggle{
+  width: 100%;
+  border:#031b3b solid 1px;
 }
