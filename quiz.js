@@ -6,13 +6,7 @@ console.log(JS);
 console.log(HTML);
 console.log(CSS);
 
-function hello(){
-  const user = JSON.parse(sessionStorage.getItem("userse"));
-  const userName = user.username;
-  alert(`Welcome ${userName} The exam will start now`)
-}
 
-hello();
 function getExamTypeFromLocalStorage() {
   const user = JSON.parse(sessionStorage.getItem("userse"));
   const positionn = user.position;
@@ -70,15 +64,15 @@ function displayQuestion() {
     option.addEventListener("change", function () {
       document.getElementById("next-button").disabled = false;
 
-      let answer = {
+      let Answer = {
         question: question.question,
         userAnswer: option.nextSibling.textContent,
         correctAnswer: question[question.correctOption],
       };
 
-      let isRepeated = answers.some((a) => a.question  === answer.question);
+      let isRepeated = answers.some((a) => a.question  === Answer.question);
       if (!isRepeated) {
-        answers.push(answer);
+        answers.push(Answer);
       }
     });
   });
@@ -129,6 +123,7 @@ function updateTimer() {
 
 function endQuiz() {
   clearInterval(intervalId);
+  
   console.log(answers);
   sessionStorage.setItem("storedAnswers", JSON.stringify(answers));
   window.location.href = "result.html";
