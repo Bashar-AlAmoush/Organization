@@ -1,4 +1,3 @@
-js
 const HTML = [
   {
     question: "What is the purpose of the HTML 'id' attribute?",
