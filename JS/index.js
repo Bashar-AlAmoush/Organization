@@ -1,4 +1,4 @@
-const userInfo = JSON.parse(sessionStorage.getItem("userse"));
+const userInfo = JSON.parse(sessionStorage.getItem("userse")); //If have data in sessions
 
 function renderLoginAndSignUp() {
   const ul = document.getElementById("ul");
@@ -8,7 +8,6 @@ function renderLoginAndSignUp() {
   link1.href = "log-in.html";
   link1.textContent = "Log in";
   listItem1.appendChild(link1);
-
   link1.style.textDecoration = "none";
 
   const listItem2 = document.createElement("li");
@@ -21,8 +20,10 @@ function renderLoginAndSignUp() {
   ul.appendChild(listItem1);
   ul.appendChild(listItem2);
 }
+
 const imagePo = document.getElementById("imageP");
 let srcc = "";
+
 function renderUserNameAndLogOut() {
   const userName = userInfo.username;
   const ul = document.getElementById("ul");
@@ -30,7 +31,10 @@ function renderUserNameAndLogOut() {
 
   imagePo.textContent;
   well.textContent = `WELCOME   ${userName.toUpperCase()} !`;
-  well.style.textAlign = "center";
+  well.style.border = "1px solid";
+  well.style.padding = "10px";
+  well.style.borderRadius = "10px";
+  well.style.backgroundColor = "rgba(255, 255, 255, 0.749)";
   const listItem1 = document.createElement("li");
   const link1 = document.createElement("a");
   link1.textContent = userName;
@@ -40,10 +44,15 @@ function renderUserNameAndLogOut() {
   const listItem2 = document.createElement("li");
   const link2 = document.createElement("a");
   link2.textContent = "Log Out";
-  link2.addEventListener("click", () => {
-    sessionStorage.clear();
-    window.location.href = "index.html";
-  });
+
+  link2.addEventListener("click", () =>
+    //when the user click on the log out , he will back to home page
+    {
+      sessionStorage.clear();
+      window.location.href = "index.html";
+    }
+  );
+
   listItem2.appendChild(link2);
   ul.appendChild(listItem2);
 }
@@ -56,6 +65,7 @@ if (userInfo) {
 // console.log(userInfo.username);
 
 const button = document.getElementById("submit");
+
 button.addEventListener("click", function () {
   if (userInfo) {
     window.location.href = "ExamWelcomepage.html";
@@ -63,6 +73,7 @@ button.addEventListener("click", function () {
     window.location.href = "registration.html";
   }
 });
+
 let aboutposition = " ";
 let description = "";
 
@@ -72,6 +83,7 @@ function getExamTypeFromLocalStorage() {
   console.log(positionn);
 
   let examType;
+
   switch (positionn) {
     case "2":
       examType = "HTML";
@@ -81,6 +93,7 @@ function getExamTypeFromLocalStorage() {
       srcc = "Images/HTML.png";
 
       break;
+
     case "3":
       examType = "CSS";
       aboutposition = " Front-End Developer";
@@ -89,6 +102,7 @@ function getExamTypeFromLocalStorage() {
       srcc = "Images/CSS.png";
 
       break;
+
     case "4":
       examType = "JS";
       aboutposition = "JavaScript Developer ";
@@ -96,6 +110,7 @@ function getExamTypeFromLocalStorage() {
       srcc = "Images/JS.png";
 
       break;
+
     default:
       console.log("Invalid position value.");
   }
@@ -107,9 +122,10 @@ console.log(positionnn);
 console.log(aboutposition);
 console.log(description);
 imagePo.src = srcc;
-imagePo.style.width = "400px";
-imagePo.style.height = "500px";
-imagePo.style.marginLeft = "200px";
+// imagePo.style.width = "400px";
+// imagePo.style.height = "500px";
+// imagePo.style.marginLeft = "200px";
+imagePo.style.marginBottom = "84px";
 function setdata() {
   const positionn = document.getElementById("aboutp");
   const des = document.getElementById("description");

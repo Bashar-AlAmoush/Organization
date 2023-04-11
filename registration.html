@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
-            <img src="Images/logo.png" alt="logo" width="150" height="50" />
+            <img src="Images/logo.png" alt="logo" width="150" height="58" />
           </a>
           <button
             class="navbar-toggler"
@@ -56,7 +56,7 @@
             <div class=" ">
               <div class="card-body">
                 <img
-                  src="http://www.ansonika.com/mavia/img/registration_bg.svg"
+                  src="Images/registration_bg.svg"
                   style="width: 30%"
                   alt="image"
                 />
@@ -91,6 +91,7 @@
                     />
                   </div>
                 </div>
+               
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <label class="form-label" for="lastName">Last Name</label>
@@ -103,7 +104,13 @@
                     />
                   </div>
                 </div>
-              </div>
+
+                 
+                <div id="error-message1"class="alert alert-danger d-none" role="alert">
+                <ul id="errors1"></ul>
+                      </div>
+
+                         </div>
 
               <div class="row">
                 <div class="col-md-6 mb-4">
@@ -139,7 +146,7 @@
               </div>
 
               <div class="row">
-                <div class="col-md-6 mb-4 pb-2">
+                <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="email">Email</label>
                     <input
@@ -151,7 +158,16 @@
                     />
                   </div>
                 </div>
-                <div class="col-md-6 mb-4 pb-2">
+
+                
+                <div
+                id="error-message2"
+                class="alert alert-danger d-none"
+                role="alert">
+                   <ul id="errors2"></ul>
+                  </div>
+
+                <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="phoneNumber"
                       >Phone Number</label
@@ -166,9 +182,16 @@
                     />
                   </div>
                 </div>
-              </div>
+                 </div>
+                 <div
+                id="error-message3"
+                class="alert alert-danger d-none"
+                role="alert"
+                 >
+                <ul id="errors3"></ul>
+                </div>
 
-              <div class="row">
+                <div class="row">
                 <div class="col-12 form-outline mt-4">
                   <select
                     class="select form-control-lg dropdown-toggle text-center"
@@ -181,6 +204,13 @@
                   </select>
                 </div>
               </div>
+              <div
+                id="error-message4"
+                class="alert alert-danger d-none"
+                role="alert"
+              >
+                <ul id="errors4"></ul>
+              </div>
 
               <div class="form-outline mt-4">
                 <label class="form-label" for="password">Password</label>
@@ -192,15 +222,31 @@
                   required
                 />
               </div>
+              <div
+                id="error-message5"
+                class="alert alert-danger d-none"
+                role="alert"
+              >
+                <ul id="errors5"></ul>
+              </div>
 
               <div class="form-outline mt-4">
                 <label class="form-label" for="confirmpass"
                   >Confirm password</label
                 >
                 <input type="password" id="confirmpass" class="form-control
-                form-control-lg" required placeholder="Confirm your password""
+                form-control-lg" required placeholder="Confirm your password"
                 />
               </div>
+
+              <div
+                id="error-message6"
+                class="alert alert-danger d-none"
+                role="alert"
+              >
+                <ul id="errors6"></ul>
+              </div>
+              
 
               <div class="mt-4 pt-2">
                 <div class="text-center pt-1 mb-2 pb-1">
